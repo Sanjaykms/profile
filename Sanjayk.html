@@ -420,7 +420,7 @@
             width: 100%;
             height: 100%;
             padding: 30px;
-            background: linear-gradient(60deg,rgb(161, 230, 252) 50%,rgb(253, 194, 229) 50%);
+            background: linear-gradient(70deg, #F9ED69 0%, #F9ED69 40%, #F08A5D calc(40% + 1px), #F08A5D 60%, #B83B5E calc(60% + 1px), #B83B5E 70%, #6A2C70 calc(70% + 1px), #6A2C70 100%);
         }
         #projects .contain .projects{
             width:70%;
@@ -439,23 +439,19 @@
             display: grid;
             grid-gap: 20px;
             margin-top: 250px;
-            transition: 0.9s;
-            box-shadow: 0 0 70px rgba(0, 0, 0, 0.185);
+            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
             opacity: 0;
+            transition:0.9s;
         }
         #projects .contain .work:nth-child(even){
             grid-template-areas: "one two";
-            transform: skew(15deg, 2deg);
         }
         #projects .contain .work:nth-child(odd){
             grid-template-areas: "two one";
-            transform: skew(2deg, 10deg);
-        }
-        #projects .contain .work:nth-child(even):hover{
-            transform: skew(15deg, 2deg) translate(20px,20px);
-        }
-        #projects .contain .work:nth-child(odd):hover{
-            transform: skew(2deg, 10deg) translate(-20px,-20px);
         }
         #projects .contain .work .imge{
             position: relative;
@@ -628,7 +624,7 @@
             color: rgb(184, 181, 181);
         }
         #contact .contain form textarea{
-            width: 60%;
+            width: 250px;
         }
         /*
         motive
@@ -936,7 +932,7 @@
     <div id="contact" class="common">
         <div class="contain">
             <h1>Contact me</h1>
-            <form name="cont" netlify>
+            <form action="mailto:sanjay9965247322@gmail.com" method="post" enctype="text/plain">
                 <input type="text" placeholder="Your Name" name="Name" required>
                 <input type="email" placeholder="Your E-mail" name="Email" required>
                 <textarea rows="8" cols="32" name="Comments" placeholder="Any comments"></textarea>
@@ -1006,13 +1002,34 @@
             }
         }, 2000);
         //fade in effect
+        var work=document.querySelectorAll("#projects .contain .projects .work");
         function effectin(){
-            var work=document.querySelectorAll("#projects .contain .projects .work");
             for(var i=0;work.length>i;i++){
                 if(document.documentElement.scrollTop>=(work[i].offsetTop-550)){
                     work[i].classList.add("fade");
                 }
             }
+        }
+        //hover effect
+        var pro=document.querySelector("#projects");
+        var x=0,y=0;
+        for(var i=0;work.length>i;i++){
+            hover(i);
+        }
+        function hover(i){
+            work[i].addEventListener("mousemove",function(e){
+            pro.style.perspective="1000px";
+            x=(window.innerWidth/2-e.clientX)/100;
+            y=(window.innerHeight/2-e.clientY)/100;
+            console.log(x+"  "+y);
+            work[i].style.transition="margin 0.9s,opacity 0.9s";
+            work[i].style.transform=`rotateX(${x}deg) rotateY(${y}deg)`;
+        });
+        work[i].addEventListener("mouseout",function(e){
+            work[i].style.transform="rotateX(0) rotateY(0)";
+            work[i].style.transition="0.9s";
+            pro.style.perspective="0";
+        })
         }
     </script>
 </body>
