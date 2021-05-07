@@ -1073,8 +1073,16 @@
             concom=document.getElementById("concom").value;
         }
         function submitform(){
+		var c=0;
             ready();
-            firebase.database().ref(conname+'/'+ conname).set({
+		firebase.database().ref(`Contact/${conname}/name`).once("value",snapshot=>{
+			if (snapshot.exists()){
+				alert("Name already exists");
+				c=1;
+				}
+			});
+		if(c==0){
+            firebase.database().ref('Contact/'+ conname).set({
                 name:conname,
                 email:conmail,
                 comments:concom,
@@ -1084,6 +1092,7 @@
             document.getElementById("conmail").value="";
             document.getElementById("concom").value="";
         }
+		}
     </script>
 </body>
 </html>
