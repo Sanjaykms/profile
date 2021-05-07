@@ -566,7 +566,7 @@
         		background-position: 0% 50%;
         	}
         }
-        #contact .contain form{
+        #contact .contain .ContactMe{
             width: 100%;
             padding: 30px;
             display: flex;
@@ -574,7 +574,7 @@
             justify-content: center;
             flex-direction: column;
         }
-        #contact .contain form input,#contact .contain form textarea{
+        #contact .contain .ContactMe input,#contact .contain .ContactMe textarea{
             margin-top: 20px;
             padding: 8px;
             outline: none;
@@ -582,11 +582,11 @@
             border: none;
             transition: 0.5s;
         }
-        #contact .contain form input:focus,#contact .contain form textarea:focus{
+        #contact .contain .ContactMe input:focus,#contact .contain .ContactMe textarea:focus{
             background-color: rgb(194, 194, 194);
             color:rgb(65, 96, 163);
         }
-        #contact .contain form .bu{
+        #contact .contain .ContactMe .bu{
             padding: 10px 20px;
             font-size: 16px;
             text-align: center;
@@ -600,10 +600,10 @@
             color: white;
             margin-top: 30px;
         }
-        #contact .contain form .bu:hover {
+        #contact .contain .ContactMe .bu:hover {
             background-color: #277086;
         }
-        #contact .contain form .bu:active {
+        #contact .contain .ContactMe .bu:active {
           background-color: #757575;
           box-shadow: 0 3px rgb(100,100,100);
           transform: translateY(4px);
@@ -623,7 +623,7 @@
         #contact .contain .social a:hover{
             color: rgb(184, 181, 181);
         }
-        #contact .contain form textarea{
+        #contact .contain .ContactMe textarea{
             width: 250px;
         }
         /*
@@ -945,13 +945,13 @@
     <div id="contact" class="common">
         <div class="contain">
             <h1>Contact me</h1>
-            <form name="Contact Me" netlify>
-                <input type="text" placeholder="Your Name" name="Name" required>
-                <input type="email" placeholder="Your E-mail" name="Email" required>
-                <textarea rows="8" cols="32" name="Comments" placeholder="Any comments"></textarea>
-                <button type="submit" class="bu" value="send">Hi There</button>
+            <div class="ContactMe">
+                <input type="text" placeholder="Your Name" name="Name" id="conname" required>
+                <input type="email" placeholder="Your E-mail" name="Email" id="conmail" required>
+                <textarea rows="8" cols="32" name="Comments" placeholder="Any comments" id="concom"></textarea>
+                <button type="submit" class="bu" value="send" onclick="submitform()">Hi There</button>
                 <input type="reset" value="Reset">
-            </form>
+            </div>
             <div class="social">
                 <a href="https://www.facebook.com/sanjay.kms.5" target="_blank"><i class="fa fa-facebook"></i></a>
                 <a href="https://www.linkedin.com/in/sanjay-kms-bb061b189/" target="_blank"><i class="fa fa-linkedin"></i></a>
@@ -961,8 +961,29 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
     <script>
         //home snake
+        var firebaseConfig = {
+    apiKey: "AIzaSyCWKuQFJbTMzw5NoOw4AVqc5JQmXI9NOv0",
+    authDomain: "auth-pro-6c323.firebaseapp.com",
+    databaseURL: "https://auth-pro-6c323-default-rtdb.firebaseio.com",
+    projectId: "auth-pro-6c323",
+    storageBucket: "auth-pro-6c323.appspot.com",
+    messagingSenderId: "669293766183",
+    appId: "1:669293766183:web:00b9f0972874bd39c19002"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+
+
         var home=document.getElementById("home");
         home.addEventListener("mousemove",e=>{
             gsap.to(".circle",{
@@ -1043,6 +1064,25 @@
             work[i].style.transition="0.9s";
             pro.style.perspective="0";
         })
+        }
+        //firebase contact submit
+        var conname,conmail,concom;
+        function ready(){
+            conname=document.getElementById("conname").value;
+            conmail=document.getElementById("conmail").value;
+            concom=document.getElementById("concom").value;
+        }
+        function submitform(){
+            ready();
+            firebase.database().ref(conname+'/'+ conname).set({
+                name:conname,
+                email:conmail,
+                comments:concom,
+            });
+            alert("See you later...  :-)");
+            document.getElementById("conname").value="";
+            document.getElementById("conmail").value="";
+            document.getElementById("concom").value="";
         }
     </script>
 </body>
