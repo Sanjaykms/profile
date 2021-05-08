@@ -638,325 +638,394 @@
             font-style: italic;
             font-size: 0.8em;
         }
+        /*Loading Css
+        */
+        .loadarea{
+        background-color: black;
+        height: 100vh;
+        width: 100wh;
+        display: grid;
+        place-items: center;
+    }
+    .profileload{
+        width: 300px;
+        height: 100px;
+        padding: 10px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .profileload div{
+        margin: 2px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        animation: snakeload infinite 1.5s calc(var(--i)*-1.2s) cubic-bezier(0.57, 0.12, 0.53, 0.99);
+    }
+    .profileload div:nth-last-child(1){
+        border-radius: 0;
+        animation: snakeload infinite 1.5s calc(var(--i)*-1.2s) cubic-bezier(0.57, 0.12, 0.53, 0.99),box linear infinite 2s;
+    }
+    @keyframes box {
+        0%{
+            border-radius: 0%;
+            background-color: red;
+        }
+        50%{
+            border-radius: 100%;
+            background-color: green;
+        }
+        100%{
+            border-radius: 0%;
+            background-color: blue;
+        }
+    }
+    @keyframes snakeload {
+        0%{
+            transform: translateY(-100%);
+        }
+        50%{
+            transform: translateY(100%);
+        }
+        100%{
+            transform: translateY(-100%);
+        }
+    }
     </style>
 </head>
-<body onscroll="myfun1()">
-    <div id="home" class="common">
-        <h1>have fun!</h1>
-        <h2>intractive resume</h2>
-        <div class="cursor">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle">
-                <span id="one"></span>
-                <span id="two"></span>
-            </div>
-        </div>
-        <a href="#profile">></a>
-    </div>
-    <button type="button" class="collapse">☰</button>
-    <div class="nav">
-        <a href="#home">home</a>
-        <a href="#profile">profile</a>
-        <a href="#abilities">abilities</a>
-        <a href="#projects">projects</a>
-        <a href="#contact">contact</a>
-    </div>
-    <div id="profile" class="common">
-        <div class="container">
-            <h1>Profile</h1>
-            <div class="about">
-                <div class="photo">
-                    <div class="imgs">
-                        <img src="image4.jpg">
-                    </div>
-                    <p>I am a creative web developer<span></span></p>
-                </div>
-                <div class="about1">
-                    <h3>about</h3>
-                    <p>I am sanjay , a fullstack developer, with good knowledge in programming and also good with web development. I love to make a stand for quality.<span> Motivation "Give up on your dreams and die - Levi ackerman (Anime AOT)"</span></p>
-                </div>
-                <div class="details">
-                    <h3>Details</h3>
-                    <h5>Name:</h5>
-                    <p>Sanjay</p>
-                    <h5>Age:</h5>
-                    <p>20</p>
-                    <h5>Location:</h5>
-                    <p>Perundurai, Erode [Dt],Tamil nadu, India, Earth</p>
-                </div>
-            </div>
+<body onscroll="myfun1()" onload="areaload()">
+    <div class="loadarea">
+        <div class="profileload">
+            <div style="--i:6.7"></div>
+            <div style="--i:5.7"></div>
+            <div style="--i:4.7"></div>
+            <div style="--i:3.7"></div>
+            <div style="--i:2.7"></div>
+            <div style="--i:1.7"></div>
+            <div style="--i:0.7"></div>
         </div>
     </div>
-    <div id="abilities" class="common">
-        <div class="motive">
-            <h2>"When people get hurt, they learn to hate... When people hurt others, they become hated and racked with guilt. But knowing that pain allows people to be kind. Pain allows people to grow... and how you grow is up to you." - jiraiya</h2>
-        </div>
-        <h1>abilities</h1>
-        <h3>skills:</h3>
-        <div class="container">
-            <div class="skills">
-                <div class="progress">
-                    <h4>web designing</h4>
-                    <div class="bar">
-                        <label>HTML</label>
-                        <span><span style="width:100%;">100%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>CSS</label>
-                        <span><span style="width:95%;">95%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>Bootstrap Framework</label>
-                        <span><span style="width:90%;">90%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>JAVASCRIPT</label>
-                        <span><span style="width:85%;">85%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>JQurey</label>
-                        <span><span style="width:70%;">70%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>REACT JS</label>
-                        <span><span style="width:70%;">70%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>PHP</label>
-                        <span><span style="width:75%;">75%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>XML</label>
-                        <span><span style="width:50%;">50%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>SVG</label>
-                        <span><span style="width: 55%;">55%</span></span>
-                    </div>
-                </div>
-                <div class="progress">
-                    <h4>programming</h4>
-                    <div class="bar">
-                        <label>C</label>
-                        <span><span style="width: 90%;">90%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>C++</label>
-                        <span><span style="width: 70%;">70%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>JAVA</label>
-                        <span><span style="width: 80%;">80%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>PYTHON</label>
-                        <span><span style="width: 75%;">75%</span></span>
-                    </div>
-                </div>
-                <div class="progress">
-                    <h4>database management</h4>
-                    <div class="bar">
-                        <label>SQL</label>
-                        <span><span style="width: 90%;">90%</span></span>
-                    </div>
-                    <div class="bar">
-                        <label>Oracle SQL</label>
-                        <span><span style="width: 90%;">80%</span></span>
-                    </div>
-                </div>
-                <div class="progress">
-                    <h4>Others</h4>
-                    <div class="bar">
-                        <label>Microsoft office</label>
-                        <span><span style="width: 95%;">95%</span></span>
-                    </div>
+    <div class="mainarea" style="display: none;">
+        <div id="home" class="common">
+            <h1>have fun!</h1>
+            <h2>intractive resume</h2>
+            <div class="cursor">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle">
+                    <span id="one"></span>
+                    <span id="two"></span>
                 </div>
             </div>
-            <div class="skills">
-                <div class="progress">
-                    <h3>Education</h3>
-                    <div class="study">
-                        <h2>Bachelor of engineering : Computer science and engineering [BE CSE] <span style="color: grey;">(2018-2022)</span></h2>
-                        <p>K.S.R College of engineering</p>
+            <a href="#profile">></a>
+        </div>
+        <button type="button" class="collapse">☰</button>
+        <div class="nav">
+            <a href="#home">home</a>
+            <a href="#profile">profile</a>
+            <a href="#abilities">abilities</a>
+            <a href="#projects">projects</a>
+            <a href="#contact">contact</a>
+        </div>
+        <div id="profile" class="common">
+            <div class="container">
+                <h1>Profile</h1>
+                <div class="about">
+                    <div class="photo">
+                        <div class="imgs">
+                            <img src="image4.jpg">
+                        </div>
+                        <p>I am a creative web developer<span></span></p>
                     </div>
-                    <div class="study">
-                        <h2>Higher Secondary School [HSS] <span style="color: grey;">(2017-2018)</span></h2>
-                        <p>Kongu Vellalar Matric Hr Sec School</p>
+                    <div class="about1">
+                        <h3>about</h3>
+                        <p>I am sanjay , a fullstack developer, with good knowledge in programming and also good with web development. I love to make a stand for quality.<span> Motivation "Give up on your dreams and die - Levi ackerman (Anime AOT)"</span></p>
                     </div>
-                    <div class="study">
-                        <h2>Secondary School Leaving Certificate [SSLC] <span style="color: grey;">(2015-2016)</span></h2>
-                        <p>Kongu Vellalar Matric Hr Sec School</p>
+                    <div class="details">
+                        <h3>Details</h3>
+                        <h5>Name:</h5>
+                        <p>Sanjay</p>
+                        <h5>Age:</h5>
+                        <p>20</p>
+                        <h5>Location:</h5>
+                        <p>Perundurai, Erode [Dt],Tamil nadu, India, Earth</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="motive">
-            <h2>"People live their lives bound by what they accept as correct and true. That's how they define "reality" - itachi uchicha.</h2>
-        </div>
-    </div>
-    <div id="projects" class="common">
-        <div class="contain">
-            <h1>Projects</h1>
-            <div class="projects">
-                <div class="work">
-                    <div class="imge">
-                        <a href="https://sanjaykms.github.io/StudentDatabase" target="_blank"><img src="studatabase.png"></a>
-                        <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+        <div id="abilities" class="common">
+            <div class="motive">
+                <h2>"When people get hurt, they learn to hate... When people hurt others, they become hated and racked with guilt. But knowing that pain allows people to be kind. Pain allows people to grow... and how you grow is up to you." - jiraiya</h2>
+            </div>
+            <h1>abilities</h1>
+            <h3>skills:</h3>
+            <div class="container">
+                <div class="skills">
+                    <div class="progress">
+                        <h4>web designing</h4>
+                        <div class="bar">
+                            <label>HTML</label>
+                            <span><span style="width:100%;">100%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>CSS</label>
+                            <span><span style="width:95%;">95%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>Bootstrap Framework</label>
+                            <span><span style="width:90%;">90%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>JAVASCRIPT</label>
+                            <span><span style="width:85%;">85%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>JQurey</label>
+                            <span><span style="width:70%;">70%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>REACT JS</label>
+                            <span><span style="width:70%;">70%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>PHP</label>
+                            <span><span style="width:75%;">75%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>XML</label>
+                            <span><span style="width:50%;">50%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>SVG</label>
+                            <span><span style="width: 55%;">55%</span></span>
+                        </div>
                     </div>
-                    <div class="namee">
-                        <h2>Student Database</h2>
-                        <p>It is a open source NoSql Database. Built using firebase</p>
+                    <div class="progress">
+                        <h4>programming</h4>
+                        <div class="bar">
+                            <label>C</label>
+                            <span><span style="width: 90%;">90%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>C++</label>
+                            <span><span style="width: 70%;">70%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>JAVA</label>
+                            <span><span style="width: 80%;">80%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>PYTHON</label>
+                            <span><span style="width: 75%;">75%</span></span>
+                        </div>
                     </div>
-                </div>
-                <div class="work">
-                    <div class="imge">
-                        <a href="https://sanjaykms.github.io/calculator" target="_blank"><img src="Projcalculator.png"></a>
-                        <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                    <div class="progress">
+                        <h4>database management</h4>
+                        <div class="bar">
+                            <label>SQL</label>
+                            <span><span style="width: 90%;">90%</span></span>
+                        </div>
+                        <div class="bar">
+                            <label>Oracle SQL</label>
+                            <span><span style="width: 90%;">80%</span></span>
+                        </div>
                     </div>
-                    <div class="namee">
-                        <h2>Calculator</h2>
-                        <p>It is a simple calculator</p>
-                    </div>
-                </div>
-                <div class="work">
-                    <div class="imge">
-                        <a href="https://sanjaykms.github.io/dino" target="_blank"><img src="ProjDino.png"></a>
-                        <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
-                    </div>
-                    <div class="namee">
-                        <h2>Dino</h2>
-                        <p>It was inspired by google's dino game</p>
-                    </div>
-                </div>
-                <div class="work">
-                    <div class="imge">
-                        <a href="https://sanjaykms.github.io/cardgame" target="_blank"><img src="ProjCardgame.png"></a>
-                        <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
-                    </div>
-                    <div class="namee">
-                        <h2>Card Game</h2>
-                        <p>Cardgame is a small game for fun</p>
-                    </div>
-                </div>
-                <div class="work">
-                    <div class="imge">
-                        <a href="https://sanjaykms.github.io/tictactoe" target="_blank"><img src="ProjTictactoe.png"></a>
-                        <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
-                    </div>
-                    <div class="namee">
-                        <h2>Tic Tac Toe</h2>
-                        <p>This game have both single player and double player</p>
-                    </div>
-                </div>
-                <div class="work">
-                    <div class="imge">
-                        <a href="https://sanjaykms.github.io/mylikes/restarunt.html" target="_blank"><img src="Projrestarunt.png"></a>
-                        <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
-                    </div>
-                    <div class="namee">
-                        <h2>Restarunt</h2>
-                        <p>This is just a model design for a restarunt webpage</p>
-                    </div>
-                </div>
-                <div class="work">
-                    <div class="imge">
-                        <a href="https://sanjaykms.github.io/mylikes/documentation.html" target="_blank"><img src="Projdocument.png"></a>
-                        <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
-                    </div>
-                    <div class="namee">
-                        <h2>JS Documentation</h2>
-                        <p>It is a webpage of JAVASCRIPT tutorial webpage design, from freecodecamp</p>
-                    </div>
-                </div>
-                <div class="work">
-                    <div class="imge">
-                        <a href="https://sanjaykms.github.io/mylikes/survey.html" target="_blank"><img src="Projsurvey.png"></a>
-                        <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
-                    </div>
-                    <div class="namee">
-                        <h2>Survey form</h2>
-                        <p>It is page designed for practice, from freecodecamp</p>
+                    <div class="progress">
+                        <h4>Others</h4>
+                        <div class="bar">
+                            <label>Microsoft office</label>
+                            <span><span style="width: 95%;">95%</span></span>
+                        </div>
                     </div>
                 </div>
-                <div class="work">
-                    <div class="imge">
-                        <a href="https://sanjaykms.github.io/mylikes/trubute.html" target="_blank"><img src="Projtrubute.png"></a>
-                        <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
-                    </div>
-                    <div class="namee">
-                        <h2>Trubute</h2>
-                        <p>It is page designed for practice, from freecodecamp</p>
+                <div class="skills">
+                    <div class="progress">
+                        <h3>Education</h3>
+                        <div class="study">
+                            <h2>Bachelor of engineering : Computer science and engineering [BE CSE] <span style="color: grey;">(2018-2022)</span></h2>
+                            <p>K.S.R College of engineering</p>
+                        </div>
+                        <div class="study">
+                            <h2>Higher Secondary School [HSS] <span style="color: grey;">(2017-2018)</span></h2>
+                            <p>Kongu Vellalar Matric Hr Sec School</p>
+                        </div>
+                        <div class="study">
+                            <h2>Secondary School Leaving Certificate [SSLC] <span style="color: grey;">(2015-2016)</span></h2>
+                            <p>Kongu Vellalar Matric Hr Sec School</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="repgit">
-                <p>See my projects source code in github</p>
-                <p style="color: grey;">@ github.com/Sanjaykms</p>
-                <a href="https://github.com/Sanjaykms" target="_blank"><i class="fa fa-github"></i>Git Hub</a>
+            <div class="motive">
+                <h2>"People live their lives bound by what they accept as correct and true. That's how they define "reality" - itachi uchicha.</h2>
             </div>
         </div>
-        <div class="motive">
-            <h2>He turned a room full of strangers into a room full of enemies with just one sentence. - Shikamaru Nara.</h2>
-        </div>
-    </div>
-    <div id="contact" class="common">
-        <div class="contain">
-            <h1>Contact me</h1>
-            <div class="ContactMe">
-                <input type="text" placeholder="Your Name" name="Name" id="conname" required>
-                <input type="email" placeholder="Your E-mail" name="Email" id="conmail" required>
-                <textarea rows="8" cols="32" name="Comments" placeholder="Any comments" id="concom"></textarea>
-                <button type="submit" class="bu" value="send" onclick="submitform()">Hi There</button>
-                <input type="reset" value="Reset">
+        <div id="projects" class="common">
+            <div class="contain">
+                <h1>Projects</h1>
+                <div class="projects">
+                    <div class="work">
+                        <div class="imge">
+                            <a href="https://sanjaykms.github.io/StudentDatabase" target="_blank"><img src="studatabase.png"></a>
+                            <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="namee">
+                            <h2>Student Database</h2>
+                            <p>It is a open source NoSql Database. Built using firebase</p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="imge">
+                            <a href="https://sanjaykms.github.io/calculator" target="_blank"><img src="Projcalculator.png"></a>
+                            <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="namee">
+                            <h2>Calculator</h2>
+                            <p>It is a simple calculator</p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="imge">
+                            <a href="https://sanjaykms.github.io/dino" target="_blank"><img src="ProjDino.png"></a>
+                            <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="namee">
+                            <h2>Dino</h2>
+                            <p>It was inspired by google's dino game</p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="imge">
+                            <a href="https://sanjaykms.github.io/cardgame" target="_blank"><img src="ProjCardgame.png"></a>
+                            <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="namee">
+                            <h2>Card Game</h2>
+                            <p>Cardgame is a small game for fun</p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="imge">
+                            <a href="https://sanjaykms.github.io/tictactoe" target="_blank"><img src="ProjTictactoe.png"></a>
+                            <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="namee">
+                            <h2>Tic Tac Toe</h2>
+                            <p>This game have both single player and double player</p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="imge">
+                            <a href="https://sanjaykms.github.io/mylikes/restarunt.html" target="_blank"><img src="Projrestarunt.png"></a>
+                            <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="namee">
+                            <h2>Restarunt</h2>
+                            <p>This is just a model design for a restarunt webpage</p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="imge">
+                            <a href="https://sanjaykms.github.io/mylikes/documentation.html" target="_blank"><img src="Projdocument.png"></a>
+                            <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="namee">
+                            <h2>JS Documentation</h2>
+                            <p>It is a webpage of JAVASCRIPT tutorial webpage design, from freecodecamp</p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="imge">
+                            <a href="https://sanjaykms.github.io/mylikes/survey.html" target="_blank"><img src="Projsurvey.png"></a>
+                            <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="namee">
+                            <h2>Survey form</h2>
+                            <p>It is page designed for practice, from freecodecamp</p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="imge">
+                            <a href="https://sanjaykms.github.io/mylikes/trubute.html" target="_blank"><img src="Projtrubute.png"></a>
+                            <span class="text"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="namee">
+                            <h2>Trubute</h2>
+                            <p>It is page designed for practice, from freecodecamp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="repgit">
+                    <p>See my projects source code in github</p>
+                    <p style="color: grey;">@ github.com/Sanjaykms</p>
+                    <a href="https://github.com/Sanjaykms" target="_blank"><i class="fa fa-github"></i>Git Hub</a>
+                </div>
             </div>
-            <div class="social">
-                <a href="https://www.facebook.com/sanjay.kms.5" target="_blank"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/in/sanjay-kms-bb061b189/" target="_blank"><i class="fa fa-linkedin"></i></a>
-                <a href="https://twitter.com/sanjay_kms" target="_blank"><i class="fa fa-twitter"></i></a>
-                <a href="https://www.instagram.com/___l_a_w_l_i_e_t___/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <div class="motive">
+                <h2>He turned a room full of strangers into a room full of enemies with just one sentence. - Shikamaru Nara.</h2>
+            </div>
+        </div>
+        <div id="contact" class="common">
+            <div class="contain">
+                <h1>Contact me</h1>
+                <div class="ContactMe">
+                    <input type="text" placeholder="Your Name" name="Name" id="conname" required>
+                    <input type="email" placeholder="Your E-mail" name="Email" id="conmail" required>
+                    <textarea rows="8" cols="32" name="Comments" placeholder="Any comments" id="concom"></textarea>
+                    <button type="submit" class="bu" value="send" onclick="submitform()">Hi There</button>
+                    <input type="reset" value="Reset">
+                </div>
+                <div class="social">
+                    <a href="https://www.facebook.com/sanjay.kms.5" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/sanjay-kms-bb061b189/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://twitter.com/sanjay_kms" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/___l_a_w_l_i_e_t___/" target="_blank"><i class="fa fa-instagram"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -1085,6 +1154,11 @@
             document.getElementById("conmail").value="";
             document.getElementById("concom").value="";
 		}
+        //loading area
+        function areaload(){
+            document.getElementsByClassName("loadarea")[0].style.display="none";
+            document.getElementsByClassName("mainarea")[0].style.display="initial";
+        }
     </script>
 </body>
 </html>
