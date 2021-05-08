@@ -1073,25 +1073,17 @@
             concom=document.getElementById("concom").value;
         }
         function submitform(){
-		var c=0;
             ready();
-		firebase.database().ref(`Contact/${conname}/name`).once("value",snapshot=>{
-			if (snapshot.exists()){
-				alert("Name already exists");
-				c=1;
-				}
-			});
-		if(c==0){
-            firebase.database().ref('Contact/'+ conname).set({
-                name:conname,
-                email:conmail,
-                comments:concom,
+            var c=firebase.database().ref("Contact").push().getKey();
+            firebase.database().ref('Contact/').child("(Name: "+conname+") Key: "+c).set({
+            name:conname,
+            email:conmail,
+            comments:concom,
             });
             alert("See you later...  :-)");
             document.getElementById("conname").value="";
             document.getElementById("conmail").value="";
             document.getElementById("concom").value="";
-        }
 		}
     </script>
 </body>
