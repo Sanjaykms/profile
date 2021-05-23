@@ -1251,6 +1251,8 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
         }
+        // right click
+        document.documentElement.addEventListener("contextmenu",(e)=>{e.preventDefault()});
     </script>
 </body>
 </html>
