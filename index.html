@@ -757,10 +757,9 @@
         margin-top: 15px;
     }
     /*Scroll bar*/
-    ::-webkit-scrollbar {
-  width: 10px;
+    ::-webkit-scrollbar{
+  width: 20px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
   background: #888; 
@@ -768,15 +767,12 @@
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #f1f1f1; 
+  background: url(narutorun.gif);
+  background-position: center;
+  background-size: cover; 
   border-radius: 20px 100px;
 }
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(177, 65, 65);
-}
-    </style>
+</style>
 </head>
 <body onscroll="myfun1()" onload="areaload()">
     <div class="loadarea">
