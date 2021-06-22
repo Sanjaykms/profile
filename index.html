@@ -1265,16 +1265,21 @@
         }
         function submitform(){
             ready();
-            var c=firebase.database().ref("Contact").push().getKey();
-            firebase.database().ref('Contact/').child("(Name: "+conname+") Key: "+c).set({
-            name:conname,
-            email:conmail,
-            comments:concom,
-            });
-            alert("See you later...  :-)");
-            document.getElementById("conname").value="";
-            document.getElementById("conmail").value="";
-            document.getElementById("concom").value="";
+            if(conname!=""&&conmail!=""&&concom!=""){
+                var c=firebase.database().ref("Contact").push().getKey();
+                firebase.database().ref('Contact/').child("(Name: "+conname+") Key: "+c).set({
+                name:conname,
+                email:conmail,
+                comments:concom,
+                });
+                alert("See you later...  :-)");
+                document.getElementById("conname").value="";
+                document.getElementById("conmail").value="";
+                document.getElementById("concom").value="";
+            }
+            else{
+                alert("Enter all the field");
+            }
 		}
         //loading area
         function areaload(){
