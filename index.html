@@ -1267,7 +1267,7 @@
             ready();
             if(conname!=""&&conmail!=""&&concom!=""){
                 var c=firebase.database().ref("Contact").push().getKey();
-                firebase.database().ref('Contact/').child("(Name: "+conname+") Key: "+c).set({
+                firebase.database().ref('Contact/'+"(Name: "+conname+") Key: "+c).set({
                 name:conname,
                 email:conmail,
                 comments:concom,
